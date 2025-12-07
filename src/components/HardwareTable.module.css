@@ -1,0 +1,1253 @@
+/* HardwareTable.module.css */
+
+.hardwareTable {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #FBFEFB 0%, #F7FBF7 100%);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+@media (max-width: 996px) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2C4A2C;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #4A7C59 0%, #2C4A2C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(44, 74, 44, 0.8);
+  max-width: 600px;
+}
+
+.headerStats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.statItem {
+  text-align: center;
+  min-width: 100px;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4A7C59;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: rgba(44, 74, 44, 0.7);
+  font-weight: 600;
+}
+
+/* Main Content */
+.mainContent {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 25px rgba(74, 124, 89, 0.1);
+  border: 1px solid rgba(218, 230, 216, 0.5);
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(218, 230, 216, 0.5);
+}
+
+.sidebarTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2C4A2C;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filterIcon {
+  color: #4A7C59;
+}
+
+.clearFiltersButton {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #DAE6D8;
+  border-radius: 6px;
+  color: #4A7C59;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clearFiltersButton:hover {
+  background: rgba(74, 124, 89, 0.05);
+  border-color: #4A7C59;
+}
+
+.filterSection {
+  margin-bottom: 1.5rem;
+}
+
+.filterLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2C4A2C;
+  margin-bottom: 0.75rem;
+}
+
+/* Search Box */
+.searchBox {
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #DAE6D8;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #2C4A2C;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4A7C59;
+  box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+}
+
+.searchInput::placeholder {
+  color: rgba(44, 74, 44, 0.5);
+}
+
+/* Category Filters */
+.categoryFilters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.categoryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.categoryButton:hover {
+  transform: translateY(-1px);
+}
+
+.categoryButton.active {
+  color: white;
+}
+
+/* Price Filters */
+.priceFilters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.priceButton {
+  padding: 0.75rem 1rem;
+  border: 2px solid #DAE6D8;
+  border-radius: 8px;
+  background: transparent;
+  color: #2C4A2C;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.priceButton:hover {
+  border-color: #4A7C59;
+  background: rgba(74, 124, 89, 0.05);
+}
+
+.priceButton.active {
+  background: #4A7C59;
+  color: white;
+  border-color: #4A7C59;
+}
+
+/* Budget Slider */
+.budgetSlider {
+  width: 100%;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #DAE6D8;
+  border-radius: 4px;
+  outline: none;
+  margin: 1rem 0;
+}
+
+.budgetSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #4A7C59;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(74, 124, 89, 0.3);
+}
+
+.budgetValue {
+  color: #4A7C59;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+.budgetMarks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(44, 74, 44, 0.7);
+  margin-top: 0.5rem;
+}
+
+/* Energy Efficiency */
+.efficiencyFilters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.efficiencyButton {
+  width: 40px;
+  height: 40px;
+  border: 2px solid;
+  border-radius: 8px;
+  background: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.efficiencyButton:hover {
+  transform: translateY(-2px);
+}
+
+.efficiencyButton.active {
+  color: white;
+}
+
+/* Popularity Slider */
+.popularitySlider {
+  width: 100%;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(90deg, #4A7C59 0%, #DAE6D8 100%);
+  border-radius: 4px;
+  outline: none;
+  margin: 1rem 0;
+}
+
+.popularitySlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #4A7C59;
+  box-shadow: 0 2px 8px rgba(74, 124, 89, 0.3);
+}
+
+.popularityValue {
+  color: #4A7C59;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+/* Content Area */
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* View Controls */
+.viewControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(74, 124, 89, 0.1);
+  border: 1px solid rgba(218, 230, 216, 0.5);
+}
+
+@media (max-width: 768px) {
+  .viewControls {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+}
+
+.viewModeButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.viewModeButton {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #DAE6D8;
+  border-radius: 8px;
+  background: transparent;
+  color: #2C4A2C;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewModeButton:hover {
+  border-color: #4A7C59;
+  background: rgba(74, 124, 89, 0.05);
+}
+
+.viewModeButton.active {
+  background: #4A7C59;
+  color: white;
+  border-color: #4A7C59;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comparisonBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(74, 124, 89, 0.1);
+  border-radius: 8px;
+  color: #4A7C59;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.comparisonIcon {
+  font-size: 1rem;
+}
+
+.clearComparisonButton {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: transparent;
+  border: 1px solid #4A7C59;
+  border-radius: 4px;
+  color: #4A7C59;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clearComparisonButton:hover {
+  background: #4A7C59;
+  color: white;
+}
+
+.downloadButton {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #DAE6D8;
+  border-radius: 8px;
+  background: transparent;
+  color: #2C4A2C;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.downloadButton:hover {
+  border-color: #4A7C59;
+  background: rgba(74, 124, 89, 0.05);
+}
+
+/* Comparison Bar */
+.comparisonBar {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 25px rgba(74, 124, 89, 0.1);
+  border: 2px solid #4A7C59;
+}
+
+.comparisonHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .comparisonHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.comparisonTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2C4A2C;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comparisonStats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stat {
+  color: rgba(44, 74, 44, 0.8);
+  font-size: 0.875rem;
+}
+
+.stat strong {
+  color: #4A7C59;
+  font-size: 1.125rem;
+}
+
+.exportButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #4A7C59;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.exportButton:hover {
+  background: #3A6C49;
+  transform: translateY(-2px);
+}
+
+.exportIcon {
+  font-size: 1rem;
+}
+
+.comparisonItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.comparisonItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(218, 230, 216, 0.3);
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+.itemName {
+  font-weight: 600;
+  color: #2C4A2C;
+}
+
+.itemPrice {
+  color: #4A7C59;
+  font-weight: 700;
+}
+
+.removeButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: #FF6B6B;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.removeButton:hover {
+  background: #E74C3C;
+  transform: scale(1.1);
+}
+
+/* Hardware Container */
+.hardwareContainer {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.gridView {
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.listView {
+  grid-template-columns: 1fr;
+}
+
+.comparisonView .hardwareCard {
+  border: 2px solid transparent;
+}
+
+.comparisonView .hardwareCard.comparing {
+  border-color: #4A7C59;
+  box-shadow: 0 8px 30px rgba(74, 124, 89, 0.2);
+}
+
+/* Hardware Card */
+.hardwareCard {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(74, 124, 89, 0.1);
+  border: 1px solid rgba(218, 230, 216, 0.5);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hardwareCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(74, 124, 89, 0.2);
+}
+
+.hardwareCard.expanded {
+  margin: 1rem 0;
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(218, 230, 216, 0.3) 0%, rgba(191, 208, 189, 0.1) 100%);
+  border-bottom: 2px solid rgba(218, 230, 216, 0.5);
+}
+
+.categoryBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.compareButton {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #DAE6D8;
+  border-radius: 8px;
+  background: white;
+  color: #4A7C59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.compareButton:hover {
+  border-color: #4A7C59;
+  background: rgba(74, 124, 89, 0.05);
+}
+
+.compareButton.active {
+  background: #4A7C59;
+  color: white;
+  border-color: #4A7C59;
+}
+
+/* Card Body */
+.cardBody {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .cardBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hardwareImage {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.imagePlaceholder {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #F5FAF4 0%, #EDF5EC 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageOverlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4A7C59;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.zoomIcon {
+  font-size: 2rem;
+}
+
+.modelSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modelButton {
+  padding: 0.5rem;
+  border: 1px solid #DAE6D8;
+  border-radius: 6px;
+  background: white;
+  color: #2C4A2C;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.modelButton:hover {
+  border-color: #4A7C59;
+  background: rgba(74, 124, 89, 0.05);
+}
+
+.modelButton.active {
+  background: #4A7C59;
+  color: white;
+  border-color: #4A7C59;
+}
+
+.hardwareInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hardwareName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2C4A2C;
+  margin: 0;
+}
+
+.hardwareDescription {
+  color: rgba(44, 74, 44, 0.8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Rating Bars */
+.ratingBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ratingItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ratingLabel {
+  font-size: 0.875rem;
+  color: rgba(44, 74, 44, 0.8);
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.ratingBar {
+  flex: 1;
+  height: 8px;
+  background: #DAE6D8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ratingFill {
+  height: 100%;
+  background: linear-gradient(90deg, #4A7C59 0%, #3A6C49 100%);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.ratingValue {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #4A7C59;
+  min-width: 40px;
+  text-align: right;
+}
+
+.efficiencyBadge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Price Section */
+.priceSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(218, 230, 216, 0.3);
+  border-radius: 8px;
+}
+
+.priceTag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.priceIcon {
+  color: #4A7C59;
+  font-size: 1.25rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4A7C59;
+}
+
+.bestFor {
+  font-size: 0.875rem;
+  color: rgba(44, 74, 44, 0.8);
+  font-weight: 500;
+}
+
+/* Quick Specs */
+.quickSpecs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem 1.5rem;
+  background: rgba(218, 230, 216, 0.2);
+  border-top: 2px solid rgba(218, 230, 216, 0.5);
+  border-bottom: 2px solid rgba(218, 230, 216, 0.5);
+  gap: 1rem;
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(218, 230, 216, 0.5);
+}
+
+.specIcon {
+  color: #4A7C59;
+  font-size: 1.25rem;
+}
+
+.specValue {
+  font-size: 0.75rem;
+  color: #2C4A2C;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Expanded Details */
+.expandedDetails {
+  padding: 1.5rem;
+  background: #FBFEFB;
+  border-top: 2px dashed rgba(218, 230, 216, 0.5);
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 996px) {
+  .detailsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detailsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailsTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2C4A2C;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(218, 230, 216, 0.5);
+}
+
+/* Specs List */
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.specLabel {
+  font-size: 0.875rem;
+  color: rgba(44, 74, 44, 0.7);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.specValue {
+  font-size: 0.875rem;
+  color: #2C4A2C;
+  font-weight: 600;
+  text-align: right;
+  flex: 1;
+}
+
+/* Features List */
+.featuresList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: rgba(44, 74, 44, 0.9);
+}
+
+.featureIcon {
+  color: #4A7C59;
+  font-size: 0.875rem;
+}
+
+/* Compatibility Tags */
+.compatibilityTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.compatibilityTag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(74, 124, 89, 0.1);
+  border: 1px solid rgba(74, 124, 89, 0.3);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  color: #4A7C59;
+  font-weight: 500;
+}
+
+/* Pros & Cons */
+.prosCons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .prosCons {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prosList,
+.consList {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.prosList {
+  background: rgba(74, 124, 89, 0.05);
+  border: 1px solid rgba(74, 124, 89, 0.2);
+}
+
+.consList {
+  background: rgba(255, 107, 107, 0.05);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.prosList h5,
+.consList h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  color: #2C4A2C;
+}
+
+.proItem,
+.conItem {
+  font-size: 0.75rem;
+  color: rgba(44, 74, 44, 0.9);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Purchase Section */
+.purchaseSection {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid rgba(218, 230, 216, 0.5);
+}
+
+.purchaseTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2C4A2C;
+  margin: 0 0 1rem 0;
+}
+
+.purchaseOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.purchaseOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #FBFEFB;
+  border: 2px solid #DAE6D8;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.purchaseOption:hover {
+  border-color: #4A7C59;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.1);
+}
+
+.vendorName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2C4A2C;
+}
+
+.vendorPrice {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4A7C59;
+}
+
+.cartIcon {
+  color: #4A7C59;
+  font-size: 1.25rem;
+}
+
+/* Card Footer */
+.cardFooter {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  border-top: 2px solid rgba(218, 230, 216, 0.5);
+}
+
+.view3DButton,
+.purchaseButton {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.view3DButton {
+  background: transparent;
+  border: 2px solid #DAE6D8;
+  color: #4A7C59;
+}
+
+.view3DButton:hover {
+  border-color: #4A7C59;
+  background: rgba(74, 124, 89, 0.05);
+}
+
+.purchaseButton {
+  background: linear-gradient(135deg, #4A7C59 0%, #3A6C49 100%);
+  border: none;
+  color: white;
+}
+
+.purchaseButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+}
+
+.buttonIcon {
+  font-size: 1.25rem;
+}
+
+/* No Results */
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 16px;
+  border: 2px dashed #DAE6D8;
+}
+
+.noResultsIcon {
+  font-size: 4rem;
+  color: #DAE6D8;
+  margin-bottom: 1.5rem;
+}
+
+.noResults h3 {
+  font-size: 1.5rem;
+  color: #2C4A2C;
+  margin-bottom: 0.75rem;
+}
+
+.noResults p {
+  color: rgba(44, 74, 44, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.resetButton {
+  padding: 0.75rem 1.5rem;
+  background: #4A7C59;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resetButton:hover {
+  background: #3A6C49;
+  transform: translateY(-2px);
+}
+
+/* Model Viewer Placeholder */
+.modelViewerPlaceholder {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 25px rgba(74, 124, 89, 0.1);
+  border: 1px solid rgba(218, 230, 216, 0.5);
+}
+
+.modelViewerHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modelViewerHeader h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2C4A2C;
+  margin-bottom: 0.5rem;
+}
+
+.modelViewerHeader p {
+  color: rgba(44, 74, 44, 0.8);
+  margin: 0;
+}
+
+.modelGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.modelItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #FBFEFB;
+  border: 2px solid #DAE6D8;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.modelItem:hover {
+  border-color: #4A7C59;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(74, 124, 89, 0.1);
+}
+
+.modelPreview {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #F5FAF4 0%, #EDF5EC 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modelIcon {
+  font-size: 3rem;
+  color: #4A7C59;
+  opacity: 0.8;
+}
+
+.modelLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2C4A2C;
+  text-align: center;
+}
